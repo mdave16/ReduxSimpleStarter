@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class SearchBar extends Component {
 	constructor (props) {
@@ -7,8 +7,13 @@ class SearchBar extends Component {
 		this.state = { term: '' }
 	}
 	render () {
-		return <input onChange={event => console.log(event.target.value)} />;
+		return (<Fragment>
+			<input onChange={event => this.setState({ term: event.target.value })} />
+		 <br />
+			Value of the input: { this.state.term }
+		</Fragment>)
 	}
+
 }
 
 export default SearchBar
